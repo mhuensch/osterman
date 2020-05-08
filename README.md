@@ -47,4 +47,18 @@ Osterman overcomes some of it's limitations by emitting notifications from the r
 ### Osterman?
 In the graphic novel "Watchmen", Doctor Manhattan's real name is "Jon Osterman".
 
+### Development
+To create a local npm pacakge for Osterman, in the source code directory run:
+```
+npm link
+```
 
+Then include that pacakge in your test or demo project by running:
+```
+npm link [example project]
+```
+
+To publish to npm under a personal account run:
+```
+npm publish --access public
+```
