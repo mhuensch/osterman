@@ -1,0 +1,24 @@
+{
+  "name": "@mhuensch/osterman",
+  "version": "1.0.0",
+  "description": "Monitoring script for quickly and simply reloading Node.js applications",
+  "main": "index.js",
+  "dependencies": {
+    "chokidar": "3.4.0",
+    "colors": "1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhuensch/osterman.git"
+  },
+  "author": "Michael Huensch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mhuensch/osterman/issues"
+  },
+  "homepage": "https://github.com/mhuensch/osterman#readme"
+}
