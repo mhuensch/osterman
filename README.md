@@ -55,7 +55,7 @@ npm link
 
 Then include that pacakge in your test or demo project by running:
 ```
-npm link [example project]
+npm link @mhuensch/osterman
 ```
 
 To publish to npm under a personal account run:
