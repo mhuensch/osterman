@@ -1,6 +1,12 @@
 const chokidar = require('chokidar')
-const colors = require('colors')
 const path = require('path')
+const util = require('util')
+
+function log (...args) {
+  args.unshift('\u001b[32m')
+  args.push('\u001b[39m')
+  console.log.apply(console, args)
+}
 
 class Osterman {
   constructor (filepath, ignored) {
@@ -14,12 +20,12 @@ class Osterman {
   }
 
   restart (event, path) {
-    console.group(`\nRestarting Osterman ...`.green)
+    log(`Restarting Osterman ...`)
     process.emit('ostermanRestarting')
     
-    if (event && path) console.log(`For ${event} to ${path}`.green)
+    if (event && path) log(`For ${event} to ${path}`)
     
-    console.log(`Removing cache of ${Object.keys(require.cache).length} files ...`.green)
+    log(`Removing cache of ${Object.keys(require.cache).length} files ...`)
     Object.keys(require.cache).forEach(id => {
       if (id === __filename) {
         require.cache[__filename].exports = this
@@ -29,8 +35,7 @@ class Osterman {
       delete require.cache[id]
     })
 
-    console.log(`Reloading ${this.filepath} ...`.green)
-    console.groupEnd()
+    log(`Reloading ${this.filepath} ...`)
 
     process.emit('ostermanRestarted')
     require(this.filepath)

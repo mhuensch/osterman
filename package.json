@@ -1,19 +1,19 @@
-{ "name": "@mhuensch/osterman"
-, "version": "1.0.4"
-, "description": "A simple monitoring script for reloading Node.js applications"
-, "main": "src/osterman.js"
-, "dependencies": 
-  { "chokidar": "3.4.0"
-  , "colors": "1.4.0"
-  }
-, "scripts": 
-  { "test": "node example/index.watch"
-  }
-, "repository": 
-  { "type": "git"
-  , "url": "git+https://github.com/mhuensch/osterman.git"
-  }
-, "author": "Michael Huensch"
-, "license": "MIT"
-, "homepage": "https://github.com/mhuensch/osterman#readme"
+{
+  "name": "@mhuensch/osterman",
+  "version": "1.0.5",
+  "description": "A simple monitoring script for reloading Node.js applications",
+  "main": "src/osterman.js",
+  "dependencies": {
+    "chokidar": "3.4.0"
+  },
+  "scripts": {
+    "test": "node example/index.watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhuensch/osterman.git"
+  },
+  "author": "Michael Huensch",
+  "license": "MIT",
+  "homepage": "https://github.com/mhuensch/osterman#readme"
 }
