@@ -1,5 +1,5 @@
 { "name": "@mhuensch/osterman"
-, "version": "1.0.2"
+, "version": "1.0.4"
 , "description": "A simple monitoring script for reloading Node.js applications"
 , "main": "src/osterman.js"
 , "dependencies": 

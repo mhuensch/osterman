@@ -2,11 +2,8 @@ const chokidar = require('chokidar')
 const colors = require('colors')
 const path = require('path')
 
-const { EventEmitter } = require('events')
-
-class Osterman extends EventEmitter {
+class Osterman {
   constructor (filepath, ignored) {
-    super()
     this.filepath = path.join(process.cwd(), filepath)
     ignored = path.join(process.cwd(), ignored)
     
@@ -17,12 +14,12 @@ class Osterman extends EventEmitter {
   }
 
   restart (event, path) {
-    this.emit('restarting')
     console.group(`\nRestarting Osterman ...`.green)
+    process.emit('ostermanRestarting')
+    
     if (event && path) console.log(`For ${event} to ${path}`.green)
     
     console.log(`Removing cache of ${Object.keys(require.cache).length} files ...`.green)
-    this.emit('removing')
     Object.keys(require.cache).forEach(id => {
       if (id === __filename) {
         require.cache[__filename].exports = this
@@ -35,16 +32,13 @@ class Osterman extends EventEmitter {
     console.log(`Reloading ${this.filepath} ...`.green)
     console.groupEnd()
 
-    this.emit('reloading')
+    process.emit('ostermanRestarted')
     require(this.filepath)
-    this.emit('restarted')
   }
 }
 
-let osterman
-
 module.exports.watch = (filepath, options) => {
-  osterman = new Osterman(filepath, options)
+  const osterman = new Osterman(filepath, options)
   osterman.restart()
   return osterman
 }
