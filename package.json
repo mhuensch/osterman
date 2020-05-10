@@ -4,6 +4,7 @@
   "description": "A simple monitoring script for reloading Node.js applications",
   "main": "src/osterman.js",
   "dependencies": {
+    "@mhuensch/jubilee": "1.0.0",
     "chokidar": "3.4.0"
   },
   "scripts": {
