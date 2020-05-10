@@ -15,9 +15,9 @@ class Osterman {
 
   restart (event, path) {
     console.log(green(`Restarting Osterman ...`))
-    process.emit('ostermanRestarting')
+    if (event && path) console.log(green(`For ${event} to ${path} ...`))
     
-    if (event && path) console.log(green(`For ${event} to ${path}`))
+    process.emit('ostermanRestarting')
     
     console.log(green(`Removing cache of ${Object.keys(require.cache).length} files ...`))
     Object.keys(require.cache).forEach(id => {
