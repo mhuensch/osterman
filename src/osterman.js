@@ -1,6 +1,6 @@
 const chokidar = require('chokidar')
 const path = require('path')
-const { green } = require('@mhuensch/jubilee')
+const { green, red } = require('@mhuensch/jubilee')
 
 class Osterman {
   constructor (filepath, ignored) {
@@ -32,7 +32,11 @@ class Osterman {
     console.log(green(`Reloading ${this.filepath} ...`))
 
     process.emit('ostermanRestarted')
-    require(this.filepath)
+    try {
+      require(this.filepath)
+    } catch (err) {
+      console.log(red(JSON.stringify(err)))
+    }
   }
   
   log (...args) {
