@@ -35,7 +35,7 @@ class Osterman {
     try {
       require(this.filepath)
     } catch (err) {
-      console.log(red(JSON.stringify(err)))
+      console.error(red(err.stack))
     }
   }
   
