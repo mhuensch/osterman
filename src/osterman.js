@@ -17,7 +17,7 @@ class Osterman {
     console.log(green(`Restarting Osterman ...`))
     if (event && path) console.log(green(`For ${event} to ${path} ...`))
     
-    process.emit('ostermanRestarting')
+    process.emit('restarting')
     
     console.log(green(`Removing cache of ${Object.keys(require.cache).length} files ...`))
     Object.keys(require.cache).forEach(id => {
@@ -31,7 +31,7 @@ class Osterman {
 
     console.log(green(`Reloading ${this.filepath} ...`))
 
-    process.emit('ostermanRestarted')
+    process.emit('restarted')
     try {
       require(this.filepath)
     } catch (err) {
